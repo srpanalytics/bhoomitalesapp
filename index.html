@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bhoomitales.com – Explore Hidden India</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+    body { background-color: #f9f9f9; color: #333; }
+    header { background-color: #1c1c1c; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; color: white; }
+    .logo-container { display: flex; align-items: center; }
+    .logo-container img { height: 50px; margin-right: 10px; }
+    nav a { color: white; text-decoration: none; margin: 0 1rem; font-weight: 500; }
+    .hero { background-image: url("C:/Users/1103775/Downloads/bhoomitalesapp/img.png"); background-size: cover; color: white; padding: 13rem 11rem; text-align: center; }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      white-space: nowrap;
+      width: 0;
+      width: 0;
+      display: inline-block;
+      animation: typing 4s steps(40, end) infinite, blink 0.75s step-end infinite;
+        }
+    @keyframes typing {
+      0% { width: 0; }
+      100% { width: 100%; }
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+      animation-delay: 4s;
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+    .hero p { font-size: 1.2rem; }
+    .search-section { text-align: center; padding: 2rem; background-color: #fff; }
+    .search-section select { padding: 0.8rem; width: 250px; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; padding: 2rem; }
+    .card { background-color: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); overflow: hidden; }
+    .card img { width: 100%; height: 180px; object-fit: cover; }
+    .card h3 { padding: 1rem; font-size: 1.2rem; }
+    .cta-section { background-color: #f0dfcdff; text-align: center; padding: 3rem 2rem; }
+    .cta-section h2 { margin-bottom: 1rem; }
+    .cta-section button { background-color: #0a0a09ff; color: white; padding: 1rem 2rem; border: none; cursor: pointer; border-radius: 5px; font-size: 1rem; }
+    footer { background-color: #222; color: white; padding: 2rem; text-align: center; font-size: 0.9rem; }
+    .blog-carousel { display: flex; overflow-x: auto; padding: 2rem 1rem; }
+    .blog-carousel .card { min-width: 300px; margin-right: 1rem; }
+   
+
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo-container">
+    <img src="bhoomitales.w.png" alt="Bhoomitales Logo">
+  </div>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#places">Places</a>
+    <a href="#food">Food</a>
+    <a href="#stays">Stays</a>
+    <a href="#blog">Blog</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+
+<section class="hero">
+  <h1>Explore the Hidden Soul of INDIA</h1>
+  <p>Discover places, flavors, and people you've never met before.</p>
+  
+</section>
+
+<section class="promo-video" style="position: relative;">
+  <video width="100%" height="auto" autoplay muted loop playsinline>
+  <source src="1.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+</section>
+
+
+
+<section class="search-section">
+  <h2>Search Hidden Places by State</h2>
+  <br>
+  <select>
+    <option>Select a State</option>
+    <option>Andhra Pradesh</option>
+    <option>Arunachal Pradesh</option>
+    <option>Assam</option>
+    <option>Bihar</option>
+    <option>Chhattisgarh</option>
+    <option>Goa</option>
+    <option>Gujarat</option>
+    <option>Haryana</option>
+    <option>Himachal Pradesh</option>
+    <option>Jharkhand</option>
+    <option>Karnataka</option>
+    <option>Kerala</option>
+    <option>Madhya Pradesh</option>
+    <option>Maharashtra</option>
+    <option>Manipur</option>
+    <option>Meghalaya</option>
+    <option>Mizoram</option>
+    <option>Nagaland</option>
+    <option>Odisha</option>
+    <option>Punjab</option>
+    <option>Rajasthan</option>
+    <option>Sikkim</option>
+    <option>Tamil Nadu</option>
+    <option>Telangana</option>
+    <option>Tripura</option>
+    <option>Uttar Pradesh</option>
+    <option>Uttarakhand</option>
+    <option>West Bengal</option>
+    <option>Andaman and Nicobar Islands</option>
+    <option>Chandigarh</option>
+    <option>Dadra and Nagar Haveli and Daman and Diu</option>
+    <option>Delhi</option>
+    <option>Lakshadweep</option>
+    <option>Puducherry</option>
+    <option>Ladakh</option>
+    <option>Jammu and Kashmir</option>
+  </select>
+</section>
+
+<section class="cards" id="places">
+  
+  <div class="card">
+  <img src="https://th-i.thgim.com/public/incoming/s4q9gq/article67135836.ece/alternates/FREE_1200/VZKRD_22-7-2013_18-33-12_G_SABHA_011.JPG" alt="Tribal Village Odisha">
+  <h3>Dongria Kondh Hills, Rayagada</h3>
+</div>
+
+  <div class="card">
+    <img src="https://s7ap1.scene7.com/is/image/incredibleindia/duduma-koraput-odisha-1-attr-hero?qlt=82&ts=1726663725752" alt="Waterfall">
+    <h3>Duduma Waterfalls, Koraput</h3>
+  </div>
+
+  <div class="card">
+    <img src="https://www.sublimetourodisha.com/app-login/Upload/pkg_img/Nrusinghanath-Mountain-sublime-tour.jpg" alt="Eco spot">
+    <h3>Harishankar Falls, Balangir</h3>
+  </div>
+
+  <div class="card">
+    <img src="https://www.sanskritimagazine.com/wp-content/uploads/2014/08/4cade1b107bf75.33021250frogview-gallery.jpg" alt="Cave Temple">
+    <h3>Gupteswar Cave Temple, Koraput</h3>
+  </div>
+
+  <div class="card">
+    <img src="https://d26dp53kz39178.cloudfront.net/media/uploads/Travel_Guide_Images/chandipur_result.webp" alt="Beach">
+    <h3>Chandipur Beach, Balasore</h3>
+  </div>
+
+  <div class="card">
+    <img src="https://assets.simplotel.com/simplotel/image/upload/x_0,y_141,w_2700,h_1518,r_0,c_crop,q_80,fl_progressive/w_900,f_auto,c_fit/lulung-aranya-nivas/Sal_Deck_3_ca0cc3" alt="Temple View">
+    <h3>Lulung, Simlipal</h3>
+  </div>
+
+  <div class="card">
+    <img src="https://media-cdn.tripadvisor.com/media/photo-s/0d/65/2b/b1/view-from-the-place.jpg" alt="Wildlife Sanctuary">
+    <h3>Satkosia Gorge, Angul</h3>
+  </div>
+
+  <div class="card">
+    <img src="https://www.sublimetourodisha.com/app-login/Upload/pkg_img/Deomali%20Nature%20Camp%20Odisha%20Koraput%20Sublime%20Tours.jpg" alt="Meadow">
+    <h3>Deomali Hills, Koraput</h3>
+  </div>
+
+  <div class="card">
+    <img src="https://www.team-bhp.com/forum/attachments/travelogues/2515790d1696875902t-weekend-drive-wonderland-tensa-odisha-img_1796.jpeg" alt="Forest">
+    <h3>Tensa Valley, Sundargarh</h3>
+  </div>
+
+  <div class="card">
+    <img src="https://apps.odishatourism.gov.in/Application/uploadDocuments/TravelTrailDoc/Banner20190328_155950.jpg" alt="Island">
+    <h3>Bhitarkanika Mangroves, Kendrapara</h3>
+  </div>
+
+  <div class="card">
+    <img src="https://odishaheritage.com/wp-content/uploads/2024/02/ansupa.jpg" alt="Lake">
+    <h3>Ansupa Lake, Cuttack</h3>
+  </div>
+
+  <div class="card">
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgV-80EDoYdEyLN-a7ggHuOWUTXvJOS-YgPY5YScyYEZt-gAiMEf9B5SPgd_Z64uUJrHkARGKGUq2bwIEk-sBw5_m2xW6sjPqmrHuT-K0rE1YyupJFGrNMc_QtjpdQTzB7HvTeTdBpcViE/s400/11+brahmani+sankh+koel+orissa+subarnekha+rusikulya.jpg" alt="Temple">
+    <h3>Gonasika (Origin of Baitarani), Keonjhar</h3>
+  </div>
+
+  <div class="card">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Badaghagara_Kendujhar.jpg " alt="Rock Formation">
+    <h3>Badaghagara Waterfall, Keonjhar</h3>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1603287544087-d2a00b82417e?w=500&auto=format&fit=crop&q=60" alt="Hill view">
+    <h3>Mahendragiri Hills, Gajapati</h3>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1582015752626-8450c8406e4d?w=500&auto=format&fit=crop&q=60" alt="Sunset View">
+    <h3>Chilika Mangalajodi, Khordha</h3>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1496153232171-b3c4ed5b14e2?w=500&auto=format&fit=crop&q=60" alt="Forest path">
+    <h3>Khandadhar Waterfall, Sundargarh</h3>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1592480612811-8eece3dc2953?w=500&auto=format&fit=crop&q=60" alt="River">
+    <h3>Jirang Monastery, Gajapati</h3>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1527694224015-d1b397b7daae?w=500&auto=format&fit=crop&q=60" alt="Water stream">
+    <h3>Naraj Barrage, Cuttack</h3>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1524338198856-725ff7b9c4ec?w=500&auto=format&fit=crop&q=60" alt="Cave">
+    <h3>Ranipur-Jharial, Balangir</h3>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=500&auto=format&fit=crop&q=60" alt="Rock hills">
+    <h3>Nrusinghanath Temple & Gandhamardan Hills, Bargarh</h3>
+  </div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="cta-section" id="stays">
+  <h2>Live With Locals, Not in Hotels</h2>
+  <p>Experience authentic life by staying in a homestay with local families.</p>
+  <br>
+  <button>Explore Homestays</button>
+</section>
+
+<section class="cards" id="food">
+  <div class="card">
+    <img src="https://b.zmtcdn.com/data/dish_photos/fc2/3beccd75e497fd76697e3240f7cf6fc2.jpg" alt="Local Food">
+    <h3>Smoked Bamboo Chicken – Nagaland</h3>
+  </div>
+  <div class="card">
+    <img src="https://www.samacharjustclick.com/wp-content/uploads/2024/03/pakhala.jpg" alt="Regional Dish">
+    <h3>Pakhala Bhaat – Odisha</h3>
+  </div>
+</section>
+
+<section class="blog-carousel" id="blog">
+  <div class="card">
+    <img src="https://www.pelago.com/img/products/TH-Thailand/chiang-mai-nature-s-symphony-a-journey-through-mon-jam-huay-tueng-thao-reservoir-and-fleur-cafe-eatery-thailand/a7dfafd1-3785-4dec-8d9d-02b3218e9fad_chiang-mai-nature-s-symphony-a-journey-through-mon-jam-huay-tueng-thao-reservoir-and-fleur-cafe-eatery-thailand.jpg" alt="Blog">
+    <h3>Journey Through the Mon Hills</h3>
+  </div>
+  <div class="card">
+    <img src="https://www.revv.co.in/blogs/wp-content/uploads/2021/10/Serenity-Beach-Bazaar.jpg" alt="Blog">
+    <h3>5 Local Markets That Feel Like Time Travel</h3>
+  </div>
+  <div class="card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShWlhTgddD9O7mHyO74PxOoAN7RzKQP8JEZw&s" alt="Blog">
+    <h3>Hidden Waterfalls of the East</h3>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Bhoomitales.com | Built with love for the soul of India</p>
+</footer>
+
+<script>
+  document.querySelector('button').addEventListener('click', () => {
+    alert("Homestay booking feature coming soon!");
+  });
+</script>
+
+</body>
+</html>
