@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bhoomitales | Blog</title>
+  <style>
+    body { font-family: 'Montserrat', sans-serif; background: #f9f9f9; margin: 0; padding: 0; color: #333; }
+    .blog-container { max-width: 1100px; margin: auto; padding: 2rem; }
+    .blog-card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+      overflow: hidden;
+    }
+    .blog-card img { width: 100%; height: auto; }
+    .blog-content { padding: 1rem 1.5rem; }
+    .blog-content h2 { margin-bottom: 0.3rem; color: #0a0a0a; }
+    .blog-content small { display: block; margin-bottom: 1rem; color: #888; }
+    .blog-content p { line-height: 1.6; }
+    header, footer { background: #1c1c1c; color: white; text-align: center; padding: 1rem 2rem; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Bhoomitales Blog</h1>
+</header>
+
+<section class="blog-container">
+  {% for blog in blogs %}
+  <div class="blog-card">
+    {% if blog.image %}
+    <img src="{{ blog.image }}" alt="{{ blog.title }}">
+    {% endif %}
+    <div class="blog-content">
+      <h2>{{ blog.title }}</h2>
+      <small>{{ blog.date }}</small>
+      <p>{{ blog.content }}</p>
+    </div>
+  </div>
+  {% endfor %}
+</section>
+
+<footer>
+  <p>© 2025 Bhoomitales.com | Built with love for the soul of India</p>
+</footer>
+
+</body>
+</html>
