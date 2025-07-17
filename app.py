@@ -17,8 +17,19 @@ def blog():
             blogs = []
     except json.JSONDecodeError:
         blogs = []
-
+        # Render the blog.html template with the blogs data
     return render_template('blog.html', blogs=blogs)
+@app.route('/food')
+def food():
+    try:
+        if os.path.exists('food_data.json') and os.path.getsize('food_data.json') > 0:
+            with open('food_data.json', 'r') as f:
+                foods = json.load(f)
+        else:
+            foods = []
+    except json.JSONDecodeError:
+        foods = []
+    return render_template('food.html', foods=foods)  # Ensure 'food.html' exists in the 'templates' folder
 
 if __name__ == '__main__':
     app.run(debug=True)

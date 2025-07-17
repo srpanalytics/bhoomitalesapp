@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Unique Foods of Different Places</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #153a0aff;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 24px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        h2 {
+            margin-bottom: 24px;
+        }
+        .filter-select {
+            max-width: 300px;
+            margin-bottom: 30px;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+        .col-md-4 {
+            flex: 1 1 300px;
+            max-width: 32%;
+        }
+        .food-card {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            margin-bottom: 24px;
+            overflow: hidden;
+            background: #fff;
+        }
+        .food-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        .p-3 {
+            padding: 16px;
+        }
+        @media (max-width: 900px) {
+            .row {
+                flex-direction: column;
+            }
+            .col-md-4 {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Unique Foods of Different Places</h2>
+    <form method="get">
+        <select name="state" class="filter-select" onchange="this.form.submit()">
+            <option value="">All States</option>
+            <option value="State 1">State 1</option>
+            <option value="State 2">State 2</option>
+            <option value="State 3">State 3</option>
+        </select>
+    </form>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="food-card">
+                <img src="images/food1.jpg" alt="Food 1" class="food-img">
+                <div class="p-3">
+                    <h5>Food 1</h5>
+                    <p class="mb-1"><strong>State:</strong> State 1</p>
+                    <p>Description of Food 1.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="food-card">
+                <img src="images/food2.jpg" alt="Food 2" class="food-img">
+                <div class="p-3">
+                    <h5>Food 2</h5>
+                    <p class="mb-1"><strong>State:</strong> State 2</p>
+                    <p>Description of Food 2.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="food-card">
+                <img src="images/food3.jpg" alt="Food 3" class="food-img">
+                <div class="p-3">
+                    <h5>Food 3</h5>
+                    <p class="mb-1"><strong>State:</strong> State 3</p>
+                    <p>Description of Food 3.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Add more food cards as needed -->
+    </div>
+</div>
+</body>
+</html>

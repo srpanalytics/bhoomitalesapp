@@ -1,50 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Bhoomitales | Blog</title>
+  <title>Blog Page</title>
   <style>
-    body { font-family: 'Montserrat', sans-serif; background: #f9f9f9; margin: 0; padding: 0; color: #333; }
-    .blog-container { max-width: 1100px; margin: auto; padding: 2rem; }
-    .blog-card {
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      margin-bottom: 2rem;
-      overflow: hidden;
-    }
-    .blog-card img { width: 100%; height: auto; }
-    .blog-content { padding: 1rem 1.5rem; }
-    .blog-content h2 { margin-bottom: 0.3rem; color: #0a0a0a; }
-    .blog-content small { display: block; margin-bottom: 1rem; color: #888; }
-    .blog-content p { line-height: 1.6; }
-    header, footer { background: #1c1c1c; color: white; text-align: center; padding: 1rem 2rem; }
+    body { font-family: Arial, sans-serif; background: #c6eebeff; margin: 0; padding: 0; }
+    .blog-container { max-width: 1100px; margin: 40px auto; background: #fff; padding: 32px; box-shadow: 0 2px 8px #eee; }
+    .blog-post { margin-bottom: 48px; }
+    .blog-title { font-size: 2em; margin-bottom: 8px; color: #333; }
+    .blog-meta { color: #888; font-size: 0.95em; margin-bottom: 16px; }
+    .blog-content { font-size: 1.15em; color: #222; line-height: 1.7; }
   </style>
 </head>
 <body>
-
-<header>
-  <h1>Bhoomitales Blog</h1>
-</header>
-
-<section class="blog-container">
-  {% for blog in blogs %}
-  <div class="blog-card">
-    {% if blog.image %}
-    <img src="{{ blog.image }}" alt="{{ blog.title }}">
-    {% endif %}
-    <div class="blog-content">
-      <h2>{{ blog.title }}</h2>
-      <small>{{ blog.date }}</small>
-      <p>{{ blog.content }}</p>
+  <div class="blog-container">
+    <!-- Blog Header -->
+    <div style="text-align:center; margin-bottom:40px;">
+      <img src="https://images.pexels.com/photos/33031591/pexels-photo-33031591.jpeg" alt="Travel Blog Banner" style="width:100%; max-height:260px; object-fit:cover; border-radius:12px;">
+      <h1 style="margin-top:20px; font-size:2.5em; color:#2d3a4a;">Bhoomi Tales: Travel Stories & Adventures</h1>
+      <p style="color:#666; font-size:1.2em;">Explore journeys, cultures, and hidden gems across India</p>
+    </div>
+    <br>
+    <br>
+    <!-- Blog Post 1 -->
+    <div class="blog-post" style="display:flex; gap:24px; align-items:flex-start;">
+      <img src="https://images.pexels.com/photos/29698712/pexels-photo-29698712.jpeg" alt="Mon Hills" style="width:180px; height:140px; object-fit:cover; border-radius:8px; box-shadow:0 2px 8px #eee;">
+      <div>
+        <div class="blog-title">Journey Through the Moon Hills</div>
+        <div class="blog-meta">By Soumya Ranjan Patra | 2025-07-11</div>
+        <div class="blog-content">
+          The Mon Hills in Nagaland are a treat for nature lovers and cultural explorers alike. We traversed winding paths, tribal homestays, and unmatched scenic beauty.
+        </div>
+      </div>
+    </div>
+    <!-- Blog Post 2 -->
+    <div class="blog-post" style="display:flex; gap:24px; align-items:flex-start;">
+      <img src="https://images.pexels.com/photos/28939328/pexels-photo-28939328.jpeg" alt="Local Markets" style="width:180px; height:140px; object-fit:cover; border-radius:8px; box-shadow:0 2px 8px #eee;">
+      <div>
+        <div class="blog-title">5 Local Markets That Feel Like Time Travel</div>
+        <div class="blog-meta">By Rahul Verma | 2025-07-10</div>
+        <div class="blog-content">
+          These lesser-known markets from across India offer not just unique goods, but also glimpses into heritage and culture that stand frozen in time.
+        </div>
+      </div>
     </div>
   </div>
-  {% endfor %}
-</section>
-
-<footer>
-  <p>© 2025 Bhoomitales.com | Built with love for the soul of India</p>
-</footer>
-
 </body>
 </html>
