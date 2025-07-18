@@ -1,6 +1,93 @@
-<form method="POST" action="/contact">
-  <input type="text" name="name" placeholder="Your name" required><br>
-  <input type="email" name="email" placeholder="Your email" required><br>
-  <textarea name="message" placeholder="Your message" required></textarea><br>
-  <button type="submit">Send</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #081d02ff, #9add89ff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .contact-container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .contact-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #4a4a4a;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            resize: none;
+            transition: border 0.3s;
+        }
+
+        form input:focus, form textarea:focus {
+            border-color: #022007ff;
+            outline: none;
+        }
+
+        form button {
+            width: 100%;
+            padding: 12px;
+            background-color: #115c0aff;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        form button:hover {
+            background-color: #4e47d6;
+        }
+
+        @media (max-width: 600px) {
+            .contact-container {
+                padding: 20px;
+                margin: 10px;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+
+<div class="contact-container">
+    <h2>Contact Us</h2>
+    <form action="/submit_contact" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="text" name="subject" placeholder="Subject" required>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</div>
+{% if status %}
+  <div class="status-message">{{ status }}</div>
+{% endif %}
+</body>
+</html>

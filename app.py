@@ -1,8 +1,11 @@
 from flask import Flask, render_template, request, redirect, jsonify
 import json
 import os
+import mysql.connector
 
 app = Flask(__name__)
+
+
 @app.route('/')
 def home():
     return render_template('index.html')  # This loads your homepage
@@ -30,6 +33,52 @@ def food():
     except json.JSONDecodeError:
         foods = []
     return render_template('food.html', foods=foods)  # Ensure 'food.html' exists in the 'templates' folder
+
+# @app.route('/places')
+# def places():
+#     try:
+#         if os.path.exists('places_data.json') and os.path.getsize('places_data.json') > 0:
+#             with open('places_data.json', 'r') as f:
+#                 places = json.load(f)
+#         else:
+#             places = []
+#     except json.JSONDecodeError:
+#         places = []
+#     return render_template('places.html', places=places)  # Ensure 'places.html' exists in the 'templates' folder
+
+@app.route('/contact', methods=['GET'])
+def contact():
+    return render_template('contact.html')
+
+@app.route('/submit_contact', methods=['POST'])
+def submit_contact():
+    name = request.form['name']
+    email = request.form['email']
+    subject = request.form['subject']
+    message = request.form['message']
+
+    # Connect to MySQL database
+    conn = mysql.connector.connect(
+        host="localhost",
+        user="root",        # Replace with your DB username
+        password="Soumya@1234",    # Replace with your DB password
+        database="contact_db"     # Replace with your DB name
+    )
+    cursor = conn.cursor()
+
+    # Insert into table (make sure 'contacts' table exists)
+    query = "INSERT INTO contacts (name, email, subject, message) VALUES (%s, %s, %s, %s)"
+    values = (name, email, subject, message)
+    cursor.execute(query, values)
+    conn.commit()
+
+    cursor.close()
+    conn.close()
+
+    return redirect('/contact')
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
