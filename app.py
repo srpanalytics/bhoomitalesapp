@@ -46,6 +46,18 @@ def food():
 #         places = []
 #     return render_template('places.html', places=places)  # Ensure 'places.html' exists in the 'templates' folder
 
+@app.route('/stays')
+def stays():
+    try:
+        if os.path.exists('stays_data.json') and os.path.getsize('stays_data.json') > 0:
+            with open('stays_data.json', 'r') as f:
+                stays = json.load(f)
+        else:
+            stays = []
+    except json.JSONDecodeError:
+        stays = []
+    return render_template('stays.html', stays=stays)  # Ensure 'stays.html' exists in the 'templates' folder
+
 @app.route('/contact', methods=['GET'])
 def contact():
     return render_template('contact.html')

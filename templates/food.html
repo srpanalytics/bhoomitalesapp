@@ -1,85 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Unique Foods of Different Places</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #153a0aff;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 24px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
-        h2 {
-            margin-bottom: 24px;
-            justify-content: center;
-            text-align: center;
-        }
-        .filter-select {
-            max-width: 300px;
-            margin-bottom: 30px;
-            padding: 8px;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-            font-size: 16px;
-        }
-        .row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 24px;
-        }
-        .col-md-4 {
-            flex: 1 1 300px;
-            max-width: 32%;
-        }
-        .food-card {
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            border-radius: 8px;
-            margin-bottom: 24px;
-            overflow: hidden;
-            background: #fff;
-        }
-        .food-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            display: block;
-        }
-        .p-3 {
-            padding: 16px;
-        }
-        @media (max-width: 900px) {
-            .row {
-                flex-direction: column;
-            }
-            .col-md-4 {
-                max-width: 100%;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Unique Foods of Different Places</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #153a0aff;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 1350px;
+      margin: 40px auto;
+      padding: 24px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 24px;
+      color: #153a0a;
+      font-size: 22px;
+      font-family: 'Papyrus'
+    }
+    .filter-select {
+      width: 100%;
+      max-width: 200px;
+      margin: 0 auto 30px;
+      display: block;
+      padding: 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    .col-md-4 {
+      flex: 1 1 300px;
+      max-width: 32%;
+    }
+    .food-card {
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      margin-bottom: 24px;
+      overflow: hidden;
+      background: #fff;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    h5{
+        font-size: 20px;
+        color : green;
+    }
+    .food-card.hide {
+      transform: scaleY(0);
+      opacity: 0;
+      height: 0;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    .food-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+    .p-3 {
+      padding: 16px;
+    }
+    @media (max-width: 900px) {
+      .col-md-4 {
+        max-width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
-<div class="container">
+  <div class="container">
     <h2>Unique Foods of Different Places</h2>
-    <form method="get">
-        <select name="state" class="filter-select" onchange="this.form.submit()">
-            <option value="">All States</option>
-            <option value="State 1">State 1</option>
-            <option value="State 2">State 2</option>
-            <option value="State 3">State 3</option>
-        </select>
+    <form>
+      <select id="stateFilter" class="filter-select">
+        <option value="">All States</option>
+        <option>Andhra Pradesh</option>
+        <option>Arunachal Pradesh</option>
+        <option>Assam</option>
+        <option>Bihar</option>
+        <option>Chhattisgarh</option>
+        <option>Goa</option>
+        <option>Gujarat</option>
+        <option>Haryana</option>
+        <option>Himachal Pradesh</option>
+        <option>Jharkhand</option>
+        <option>Karnataka</option>
+        <option>Kerala</option>
+        <option>Madhya Pradesh</option>
+        <option>Maharashtra</option>
+        <option>Manipur</option>
+        <option>Meghalaya</option>
+        <option>Mizoram</option>
+        <option>Nagaland</option>
+        <option>Odisha</option>
+        <option>Punjab</option>
+        <option>Rajasthan</option>
+        <option>Sikkim</option>
+        <option>Tamil Nadu</option>
+        <option>Telangana</option>
+        <option>Tripura</option>
+        <option>Uttar Pradesh</option>
+        <option>Uttarakhand</option>
+        <option>West Bengal</option>
+      </select>
     </form>
-    <div class="row">
+    <div class="row" id="foodGrid">
         <div class="col-md-4">
-    <div class="food-card">
+    <div class="food-card" data-state="Odisha">
         <img src="https://www.samacharjustclick.com/wp-content/uploads/2024/03/pakhala.jpg" alt="Pakhala Bhaat" class="food-img">
         <div class="p-3">
             <h5>Pakhala Bhaat</h5>
@@ -90,18 +129,18 @@
 </div>
 
 <div class="col-md-4">
-    <div class="food-card">
+    <div class="food-card" data-state="Odisha">
         <img src="https://www.cooking4allseasons.com/wp-content/uploads/2020/09/Dahi-Bara-Ghuguni-Alu-Dum.jpg" alt="Dahi Bara Aloo Dum" class="food-img">
         <div class="p-3">
             <h5>Dahi Bara Aloo Dum</h5>
-            <p class="mb-1"><strong>State:</strong> Odisha</p>
+            <p class="mb-1"><strong>State:</strong>Odisha</p>
             <p>A famous Cuttack street food made of soft lentil dumplings in curd served with spicy potato curry and ghugni.</p>
         </div>
     </div>
 </div>
 
 <div class="col-md-4">
-    <div class="food-card">
+    <div class="food-card" data-state="Odisha">
         <img src="https://images.archanaskitchen.com/images/recipes/indian/sweet-recipes/Chhena_Poda_ed8bb492d1.jpg" alt="Chhena Poda" class="food-img">
         <div class="p-3">
             <h5>Chhena Poda</h5>
@@ -112,7 +151,7 @@
 </div>
 
 <div class="col-md-4">
-    <div class="food-card">
+    <div class="food-card" data-state="Odisha">
         <img src="https://img-global.cpcdn.com/recipes/735838bcbebfe51b/1200x630cq80/photo.jpg" alt="Macha Besara" class="food-img">
         <div class="p-3">
             <h5>Macha Besara</h5>
@@ -123,7 +162,7 @@
 </div>
 
 <div class="col-md-4">
-    <div class="food-card">
+    <div class="food-card" data-state="Odisha">
         <img src="https://images.slurrp.com/prodrich_article/p26sebvazp.webp?impolicy=slurrp-20210601&width=1200&height=675" alt="Rasabali" class="food-img">
         <div class="p-3">
             <h5>Rasabali</h5>
@@ -134,7 +173,7 @@
 </div>
 
 <div class="col-md-4">
-    <div class="food-card">
+    <div class="food-card" data-state="Odisha">
         <img src="https://wellnessmunch.com/wp-content/uploads/2021/08/WhatsApp-Image-2021-08-16-at-8.21.45-PM-1-1.jpeg" alt="Dalma" class="food-img">
         <div class="p-3">
             <h5>Dalma</h5>
@@ -145,7 +184,7 @@
 </div>
 
 <div class="col-md-4">
-    <div class="food-card">
+    <div class="food-card" data-state="Odisha">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52kkI86jwVxJWoLv2W2ZyLZcF-epgruO_uA&s" alt="Khatta" class="food-img">
         <div class="p-3">
             <h5>Khatta</h5>
@@ -156,7 +195,7 @@
 </div>
 
 <div class="col-md-4">
-    <div class="food-card">
+    <div class="food-card" data-state="Odisha">
         <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjymCejgJ91Tpgru04LmhYUigCvD00hnEN1MAjUCHEgpuZfV7r1sbo6e_aU__rFdcGIvAfoluMApTbLbsz_rMD0UzxqAUg1aazXhY0KyrfxOL9Qm6QyMdW3dYhYRJvb8ZWedS_M8plY4QCiSuukurGxbyIVC14mb3udpK4RO7bO8yDUULF6kUpac8_5=w640-h512" alt="Mudhi Mansa" class="food-img">
         <div class="p-3">
             <h5>Mudhi Mansa</h5>
@@ -167,7 +206,7 @@
 </div>
 
 <div class="col-md-4">
-    <div class="food-card">
+    <div class="food-card" data-state="Odisha">
         <img src="https://images.slurrp.com/webstories/wp-content/uploads/2023/05/03214408/Badi-chura.png" alt="Badi Chura" class="food-img">
         <div class="p-3">
             <h5>Badi Chura</h5>
@@ -178,7 +217,7 @@
 </div>
 
 <div class="col-md-4">
-    <div class="food-card">
+    <div class="food-card" data-state="Odisha">
         <img src="https://i0.wp.com/myyellowapron.com/wp-content/uploads/2018/10/optimized-odisha-kanika_mitha-pulao_sweet-rice.jpg?fit=598%2C900&ssl=1" alt="Kanika" class="food-img">
         <div class="p-3">
             <h5>Kanika</h5>
@@ -188,7 +227,7 @@
     </div>
 </div>
 <div class="col-md-4">
-    <div class="food-card">
+    <div class="food-card" data-state="Odisha">
         <img src="https://lh5.googleusercontent.com/proxy/osoymLhNmsy1aWup3K9dOREeWPIpIBS0ANtKq5O4Y2nFRTss0ynoKRhed5O9K8ETXbd6SOUxKCSFYKxpgr3xoXOutZ1VaQhXTYjy94YWtTf_4GC9BpbwGm8NrP4" alt="Khaja" class="food-img">
         <div class="p-3">
             <h5>Khaja</h5>
@@ -199,7 +238,7 @@
 </div>
 
 <div class="col-md-4">
-    <div class="food-card">
+    <div class="food-card" data-state="Odisha">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeh48vLsh-eZR0H8OakbIGywqr3HZB3FVf9w&s" alt="Dahi Baigana" class="food-img">
         <div class="p-3">
             <h5>Dahi Baigana</h5>
@@ -210,7 +249,7 @@
 </div>
 
 <div class="col-md-4">
-    <div class="food-card">
+    <div class="food-card" data-state="Odisha">
         <img src="https://tastingtales.com/wp-content/uploads/2017/04/ambila_curry_19.jpg" alt="Ambila" class="food-img">
         <div class="p-3">
             <h5>Ambila</h5>
@@ -221,7 +260,7 @@
 </div>
 
 <div class="col-md-4">
-    <div class="food-card">
+    <div class="food-card" data-state="Odisha">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAPis4bF__LpxJhMMW0_D66KyHw0DqQ9zV94Jv2BFQkHdgOXJQNqtcATVR2oUMVOyZdYo&usqp=CAU" alt="Chhena Jhili" class="food-img">
         <div class="p-3">
             <h5>Chhena Jhili</h5>
@@ -232,7 +271,17 @@
 </div>
 
 <div class="col-md-4">
-    <div class="food-card">
+    <div class="food-card" data-state="Odisha">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThDKzpStKNd7S9oyv4FKD8oixOpNd1zdMIvQ&s" alt="Kakharu Phula Bhaja" class="food-img">
+        <div class="p-3">
+            <h5>Kakharu Phula Bhaja</h5>
+            <p class="mb-1"><strong>State:</strong> Odisha</p>
+            <p>Fried pumpkin flowers coated in a batter of gram flour, turmeric, and salt. This seasonal delicacy is crispy and typically served as a side dish with rice meals.</p>
+        </div>
+    </div>
+</div>
+<div class="col-md-4">
+    <div class="food-card" data-state="Odisha">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThDKzpStKNd7S9oyv4FKD8oixOpNd1zdMIvQ&s" alt="Kakharu Phula Bhaja" class="food-img">
         <div class="p-3">
             <h5>Kakharu Phula Bhaja</h5>
@@ -242,10 +291,32 @@
     </div>
 </div>
 
-<!-- 10 more coming in the next message due to size limits -->
 
-        <!-- Add more food cards as needed -->
-    </div>
-</div>
+
+
+
+
+
+
+  <script>
+    const filter = document.getElementById('stateFilter');
+    const cards = document.querySelectorAll('.food-card');
+
+    filter.addEventListener('change', () => {
+      const selected = filter.value;
+      cards.forEach(card => {
+        if (!selected || card.dataset.state === selected) {
+          card.parentElement.style.display = '';
+          card.classList.remove('hide');
+        } else {
+          card.parentElement.style.display = 'none';
+          card.classList.add('hide');
+        }
+      });
+    });
+  </script>
+
+
+
 </body>
 </html>

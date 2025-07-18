@@ -7,51 +7,149 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
-    body { background-color: #f9f9f9; color: #333; }
-    header { background-color: #1c1c1c; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; color: white; }
+    body { background-color: #f9f9f9ff; color: #333; }
+
+   header { 
+        background-color: transparent; /* <- changed */
+        padding: 1rem 2rem; 
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
+        color: white; 
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 10;
+      }
+
     .logo-container { display: flex; align-items: center; }
     .logo-container img { height: 50px; margin-right: 10px; }
-    nav a { color: white; text-decoration: none; margin: 0 1rem; font-weight: 500; }
-    .hero { background-image: url("../static/img.png"); background-size: cover; color: white; padding: 15rem 11rem; text-align: center; }
+
+    nav a { 
+      color: white; 
+      text-decoration: none; 
+      margin: 0 1rem; 
+      font-weight: 500; 
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      color: white;
+    }
+
+    .hero-video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: -2;
+      opacity: 0.75;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,30%) 40%, rgba(0,0,0,30%) 100%);
+      z-index: -1;
+    }
     .hero h1 {
       font-size: 3rem;
       margin-bottom: 1rem;
       overflow: hidden;
       white-space: nowrap;
       width: 0;
-      width: 0;
       display: inline-block;
-      animation: typing 4s steps(40, end) infinite, blink 0.75s step-end infinite;
-        }
+      animation: typing 4s steps(40, end) infinite alternate, blink 0.75s step-end infinite;
+      position: relative;
+      z-index: 1;
+      font-family: 'Papyrus'
+    }
+
     @keyframes typing {
       0% { width: 0; }
       100% { width: 100%; }
     }
 
     .hero p {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       opacity: 0;
-      animation: fadeIn 1s ease forwards;
+      animation: fadeIn 2s ease forwards;
       animation-delay: 4s;
+      position: relative;
+      z-index: 1;
+      color : #d8f3ccff;
     }
+
     @keyframes fadeIn {
       to { opacity: 1; }
     }
-    .hero p { font-size: 1.2rem; }
+
     .search-section { text-align: center; padding: 2rem; background-color: #fff; }
-    .search-section select { padding: 0.8rem; width: 250px; }
-    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; padding: 2rem; }
-    .card { background-color: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); overflow: hidden; }
+    .search-section select { padding: 0.8rem; width: 340px; }
+
+    .cards { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+      gap: 1.5rem; 
+      padding: 2rem; 
+    }
+
+    .card { 
+      background-color: white; 
+      border-radius: 10px; 
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
+      overflow: hidden; 
+    }
+
     .card img { width: 100%; height: 180px; object-fit: cover; }
     .card h3 { padding: 1rem; font-size: 1.2rem; }
-    .cta-section { background-color: #f0dfcdff; text-align: center; padding: 3rem 2rem; }
-    .cta-section h2 { margin-bottom: 1rem; }
-    .cta-section button { background-color: #0a0a09ff; color: white; padding: 1rem 2rem; border: none; cursor: pointer; border-radius: 5px; font-size: 1rem; }
-    footer { background-color: #222; color: white; padding: 2rem; text-align: center; font-size: 0.9rem; }
-    .blog-carousel { display: flex; overflow-x: auto; padding: 2rem 1rem; }
-    .blog-carousel .card { min-width: 300px; margin-right: 1rem; }
-   
 
+    .cta-section { 
+      background-color: #b9e6a4ff; 
+      text-align: center; 
+      padding: 3rem 2rem; 
+    }
+
+    .cta-section h2 { margin-bottom: 1rem; }
+
+    .cta-section button { 
+      background-color: #0a0a09ff; 
+      color: white; 
+      padding: 1rem 2rem; 
+      border: none; 
+      cursor: pointer; 
+      border-radius: 5px; 
+      font-size: 1rem; 
+    }
+
+    footer { 
+      background-color: #222; 
+      color: #888; 
+      padding: 2rem; 
+      text-align: center; 
+      font-size: 0.9rem; 
+    }
+
+    .blog-carousel { 
+      display: flex; 
+      overflow-x: auto; 
+      padding: 2rem 1rem; 
+    }
+
+    .blog-carousel .card { 
+      min-width: 300px; 
+      margin-right: 1rem; 
+    }
   </style>
 </head>
 <body>
@@ -70,19 +168,34 @@
   </nav>
 </header>
 
-
 <section class="hero">
+  <!-- Background video -->
+  <video autoplay muted loop class="hero-video">
+    <source src="../static/2.mp4" type="video/mp4" />
+
+  </video>
+
+  <!-- Optional overlay for text readability -->
+  <div class="overlay"></div>
+
+  <!-- Animated content -->
   <h1>Explore the Hidden Soul of INDIA</h1>
-  <p>Discover places, flavors, and people you've never met before.</p>
-  
+  <br>
+  <p>Discover hidden places tucked away from the usual trails, indulge in the rich and diverse flavors of local cuisines, 
+  and meet inspiring people whose stories, traditions, and lifestyles reflect the true soul of India.<p>
 </section>
 
-<section class="promo-video" style="position: relative;">
-  <video width="100%" height="auto" autoplay muted loop playsinline>
-  <source src="../static/1.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-</section>
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -263,7 +376,7 @@
 
 
 <footer>
-  <p>© 2025 Bhoomitales.com | Built with love for the soul of India</p>
+  <p>© 2025 Bhoomitales.com | Built with love for the soul of India | Created by Soumya Ranjan Patra</p>
 </footer>
 
 <script>
